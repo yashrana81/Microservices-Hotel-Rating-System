@@ -1,13 +1,12 @@
 package com.microservice.UserService.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,6 +22,8 @@ public class User {
     private String name;
     private String email;
     private String about;
+    @Transient
+    List<Ratings> ratings;
 
     public String getUserId() {
         return userId;
@@ -57,4 +58,13 @@ public class User {
     }
 
     // Other user properties
+
+    public List<Ratings> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Ratings> ratings) {
+        this.ratings = ratings;
+    }
+
 }
