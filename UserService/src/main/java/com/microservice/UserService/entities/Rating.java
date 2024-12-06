@@ -3,7 +3,7 @@ package com.microservice.UserService.entities;
 import lombok.Data;
 
 @Data
-public class Ratings {
+public class Rating {
     private int ratingId;
     private String userId;
     private String hotelId;

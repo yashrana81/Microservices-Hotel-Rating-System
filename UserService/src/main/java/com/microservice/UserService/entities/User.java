@@ -23,7 +23,7 @@ public class User {
     private String email;
     private String about;
     @Transient
-    List<Ratings> ratings;
+    List<Rating> ratings;
 
     public String getUserId() {
         return userId;
@@ -59,11 +59,11 @@ public class User {
 
     // Other user properties
 
-    public List<Ratings> getRatings() {
+    public List<Rating> getRatings() {
         return ratings;
     }
 
-    public void setRatings(List<Ratings> ratings) {
+    public void setRatings(List<Rating> ratings) {
         this.ratings = ratings;
     }
 
