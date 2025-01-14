@@ -7,6 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class Rating {
     private int ratingId;
     private String userId;
@@ -15,19 +16,19 @@ public class Rating {
     private String feedback;
     private Hotel hotel;
 
-    public String getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(String hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
+//    public String getHotelId() {
+//        return hotelId;
+//    }
+//
+//    public void setHotelId(String hotelId) {
+//        this.hotelId = hotelId;
+//    }
+//
+//    public Hotel getHotel() {
+//        return hotel;
+//    }
+//
+//    public void setHotel(Hotel hotel) {
+//        this.hotel = hotel;
+//    }
 }

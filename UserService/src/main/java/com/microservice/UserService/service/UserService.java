@@ -1,4 +1,4 @@
-package com.microservice.UserService.services;
+package com.microservice.UserService.service;
 
 import com.microservice.UserService.entities.User;
 

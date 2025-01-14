@@ -1,11 +1,12 @@
-package com.microservice.UserService.services.impl;
+package com.microservice.UserService.service.impl;
 
 import com.microservice.UserService.entities.Hotel;
 import com.microservice.UserService.entities.Rating;
 import com.microservice.UserService.entities.User;
 import com.microservice.UserService.exceptions.ResourceNotFoundException;
 import com.microservice.UserService.repositories.UserRepository;
-import com.microservice.UserService.services.UserService;
+import com.microservice.UserService.service.UserService;
+import com.microservice.UserService.service.external.hotel.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -21,6 +22,9 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RatingService ratingService;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -45,9 +49,10 @@ public class UserServiceImpl implements UserService {
 //        Rating[] userRatings = this.restTemplate.getForObject(urlRating,Rating[].class);
 //        List<Rating> ratings = Arrays.asList(userRatings);
 
-        ResponseEntity<List<Rating>> userRatings = this.restTemplate.exchange(urlRating, HttpMethod.GET, null, new ParameterizedTypeReference<List<Rating>>() {
-        });
-        List<Rating>ratings = userRatings.getBody();
+//        ResponseEntity<List<Rating>> userRatings = this.restTemplate.exchange(urlRating, HttpMethod.GET, null, new ParameterizedTypeReference<List<Rating>>() {
+//        });
+//        List<Rating>ratings = userRatings.getBody();
+        List<Rating> ratings = ratingService.getRatingsByUserId(userId);
         String urlHotel ="http://HOTEL-SERVICE/hotels/";
 
         List<Rating> ratingList = ratings.stream().map(rating -> {

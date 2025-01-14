@@ -1,7 +1,7 @@
 package com.microservice.UserService.controllers;
 
 import com.microservice.UserService.entities.User;
-import com.microservice.UserService.services.UserService;
+import com.microservice.UserService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
